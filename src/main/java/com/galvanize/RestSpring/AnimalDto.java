@@ -20,4 +20,6 @@ public class AnimalDto {
         this.animalList.add(animal);
     }
 
+    public void giveTreat(String name){}
+
 }

@@ -8,4 +8,5 @@ import lombok.Data;
 public class Animal {
     private String name;
     private AnimalType animalType;
+    private Mood mood=Mood.UNHAPPY;
 }

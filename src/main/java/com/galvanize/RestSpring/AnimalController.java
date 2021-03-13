@@ -24,4 +24,10 @@ public class AnimalController {
     public String getAnimals() throws JsonProcessingException {
         return objectMapper.writeValueAsString(this.animalDto.getAnimalList());
     }
+
+    @PutMapping(path="/animals/treat/{name}")
+    public void giveTreat(@PathVariable String name){
+
+    }
+
 }
