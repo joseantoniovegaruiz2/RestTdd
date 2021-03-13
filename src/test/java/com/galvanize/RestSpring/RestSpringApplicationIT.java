@@ -25,10 +25,10 @@ class RestSpringApplicationIT {
 
 	@Test
 	public void addAnimal() throws Exception {
-		AnimalDto animalDto = new AnimalDto(new Animal("Bear", AnimalType.WALKING));
+		Animal animal = new Animal("Bear", AnimalType.WALKING);
 
 		this.mockMvc.perform(MockMvcRequestBuilders.post("/animals")
-				.content(this.objectMapper.writeValueAsString(animalDto))
+				.content(this.objectMapper.writeValueAsString(animal))
 				.contentType(MediaType.APPLICATION_JSON)
 		);
 
@@ -36,7 +36,6 @@ class RestSpringApplicationIT {
 				.andExpect(MockMvcResultMatchers.status().isOk())
 				.andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
 				.andExpect(MockMvcResultMatchers.jsonPath("[0].name").value("Bear"))
-				.andExpect(MockMvcResultMatchers.jsonPath("[0].animalType").value("WALKING"))
-				.andExpect(MockMvcResultMatchers.jsonPath("$", Matchers.hasSize(0)));
+				.andExpect(MockMvcResultMatchers.jsonPath("[0].animalType").value("WALKING"));
 	}
 }

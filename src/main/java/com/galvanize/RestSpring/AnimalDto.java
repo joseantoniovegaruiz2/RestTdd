@@ -9,6 +9,9 @@ import java.util.List;
 public class AnimalDto {
     private List<Animal> animalList=new ArrayList<>();
 
+    public AnimalDto() {
+    }
+
     public AnimalDto(Animal animal) {
         this.animalList.add(animal);
     }
